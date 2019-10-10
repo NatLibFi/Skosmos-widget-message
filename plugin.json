@@ -1,0 +1,6 @@
+{
+    "css": ["message-plugin.css"],
+    "js": ["message-plugin.js"],
+    "callback": ["displayMessage"],
+    "templates": ["template.html"]
+}
