@@ -8,11 +8,13 @@ MESSAGE = {
       'en': 'NB:'
     },
     renderWarning: function(params) {
-        $('.content').prepend(Handlebars.compile($('#message-template').html())({
-		'notice': this.notice[lang],
-		'message': pluginMessages[lang]
-        }));
-    },
+        if (pluginMessages) {
+            $('.content').prepend(Handlebars.compile($('#message-template').html())({
+                'notice': this.notice[lang],
+                'message': pluginMessages[lang]
+            }));
+        }
+    }
 };
 
 $(function() {
