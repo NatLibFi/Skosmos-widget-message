@@ -1,5 +1,5 @@
 #Parameterized Plugin
-Skosmos makes it possible to pass an arbitrary set of parameters for a widget, which interprets the parameters in order to create content for Skosmos concept and vocabulary views. Parameters are passed in the config.ttl - the example shows unlabeled blank nodes with nested properties in schema.org namespace (https://schema.org/PropertyValue):
+Skosmos makes it possible to pass an arbitrary set of parameters for a widget, which interprets the parameters in order to create content for Skosmos concept and vocabulary views. Parameters are passed in the `config.ttl` - the example shows unlabeled blank nodes with nested properties in schema.org namespace (https://schema.org/PropertyValue):
 
 <pre><code>
 @prefix schema: <http://schema.org/> .
@@ -29,7 +29,7 @@ Skosmos makes it possible to pass an arbitrary set of parameters for a widget, w
                     ] .
 </code></pre>
 
-Each propertyValue is identified by its schema:propertyID. It is up to the parameter plugin to interpret these name-value pairs. The requirement for each parameter plugin is to be installed under plugins/ in a directory named after the string passed in skosmos:usePlugin, e.g. Skosmos-home/plugins/awesome-message-widget/ as documented in https://github.com/NatLibFi/Skosmos/wiki/Plugins . The parameters are passed to javascript as:
+Each propertyValue is identified by its `schema:propertyID`. It is up to the parameter plugin to interpret these name-value pairs. The requirement for each parameter plugin is to be installed under `plugins/` in a directory named after the string passed in `skosmos:usePlugin`, e.g. `Skosmos-home/plugins/awesome-message-widget/` as documented in https://github.com/NatLibFi/Skosmos/wiki/Plugins . The parameters are passed to javascript as:
 
 <pre><code>
 var pluginParameters = {
