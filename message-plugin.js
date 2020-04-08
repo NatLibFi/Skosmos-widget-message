@@ -1,27 +1,29 @@
 // declaring a namespace for the plugin
-var MESSAGE = MESSAGE || {};
+var MSG = MSG || {};
 
-MESSAGE = {
+MSG = {
     notice: {
       'fi': 'HUOM!',
       'sv': 'OBS!',
       'en': 'NB:'
     },
     renderWarning: function(params) {
-        if (pluginMessages) {
-            $('.content').prepend(Handlebars.compile($('#message-template').html())({
-                'notice': this.notice[lang],
-                'message': pluginMessages[lang]
-            }));
+        var msg = 'msg';
+        if (pluginParameters['message']['msg_'+lang] != null) {
+            msg = 'msg_'+lang;
         }
-    }
+
+        $('.content').prepend(Handlebars.compile($('#message-template').html())({
+            'notice': this.notice[lang],
+            'message': pluginParameters['message'][msg]
+        }));
+    },
 };
 
 $(function() {
-    window.displayMessage = function(params) {
+    window.messageWarning = function(params) {
         if (params.page === 'page' && (params.uri  || $('#vocab-info').length)) {
-            MESSAGE.renderWarning(params);
+            MSG.renderWarning(params);
         }
     };
 });
-
